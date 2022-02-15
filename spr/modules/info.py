@@ -34,20 +34,8 @@ async def get_user_info(user):
     reason = None
     if blacklisted:
         reason, time = get_blacklist_event(user.id)
-    data = f"""
-**ID:** {user.id}
-**DC:** {user.dc_id}
-**Username:** {user.username}
-**Mention: ** {user.mention("Link")}
+    data = f'\x1f**ID:** {user.id}\x1f**DC:** {user.dc_id}\x1f**Username:** {user.username}\x1f**Mention: ** {user.mention("Link")}\x1f\x1f**Is Sudo:** {user.id in SUDOERS}\x1f**Trust:** {trust}\x1f**Spammer:** {trust < 50}\x1f**Reputation:** {get_reputation(user.id)}\x1f**NSFW Count:** {get_nsfw_count(user.id)}\x1f**Potential Spammer:** {trust < 70}\x1f**Blacklisted:** {blacklisted}\x1f'
 
-**Is Sudo:** {user.id in SUDOERS}
-**Trust:** {trust}
-**Spammer:** {True if trust < 50 else False}
-**Reputation:** {get_reputation(user.id)}
-**NSFW Count:** {get_nsfw_count(user.id)}
-**Potential Spammer:** {True if trust < 70 else False}
-**Blacklisted:** {blacklisted}
-"""
     data += (
         f"**Blacklist Reason:** {reason} | {ctime(time)}"
         if reason

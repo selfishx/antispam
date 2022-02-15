@@ -141,9 +141,7 @@ def update_spam_data(user_id: int, spam_value: float):
     if len(data) >= 50:
         data = data[1:50]
     data.append(spam_value)
-    data = [
-        i for i in data if isinstance(i, float) or isinstance(i, int)
-    ]
+    data = [i for i in data if isinstance(i, (float, int))]
     data = dumps(data)
     c.execute(
         """

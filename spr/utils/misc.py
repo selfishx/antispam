@@ -12,8 +12,9 @@ async def backup():
         try:
             await gather(
                 spr.send_document(user, DB_NAME),
-                spr.send_document(user, SESSION_NAME + ".session"),
+                spr.send_document(user, f'{SESSION_NAME}.session'),
             )
+
         except Exception:
             pass
 
@@ -52,7 +53,7 @@ def get_file_id(message):
         if int(message.document.file_size) > 3145728:
             return
         mime_type = message.document.mime_type
-        if mime_type != "image/png" and mime_type != "image/jpeg":
+        if mime_type not in ["image/png", "image/jpeg"]:
             return
         return message.document.file_id
 

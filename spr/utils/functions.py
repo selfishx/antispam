@@ -14,21 +14,14 @@ from spr.utils.db import (get_blacklist_event, get_nsfw_count,
 async def get_user_info(message):
     user = message.from_user
     trust = get_user_trust(user.id)
-    user_ = f"{('@' + user.username) if user.username else user.mention} [`{user.id}`]"
+    user_ = f'{f"@{user.username}" if user.username else user.mention} [`{user.id}`]'
+
     blacklisted = is_user_blacklisted(user.id)
     reason = None
     if blacklisted:
         reason, time = get_blacklist_event(user.id)
-    data = f"""
-**User:**
-    **Username:** {user_}
-    **Trust:** {trust}
-    **Spammer:** {True if trust < 50 else False}
-    **Reputation:** {get_reputation(user.id)}
-    **NSFW Count:** {get_nsfw_count(user.id)}
-    **Potential Spammer:** {True if trust < 70 else False}
-    **Blacklisted:** {is_user_blacklisted(user.id)}
-"""
+    data = f'\x1f**User:**\x1f    **Username:** {user_}\x1f    **Trust:** {trust}\x1f    **Spammer:** {trust < 50}\x1f    **Reputation:** {get_reputation(user.id)}\x1f    **NSFW Count:** {get_nsfw_count(user.id)}\x1f    **Potential Spammer:** {trust < 70}\x1f    **Blacklisted:** {is_user_blacklisted(user.id)}\x1f'
+
     data += (
         f"    **Blacklist Reason:** {reason} | {ctime(time)}"
         if reason
@@ -93,7 +86,7 @@ async def delete_spam_notify(
 __Message has been deleted__
 """
     content = message.text or message.caption
-    content = content[:400] + "..."
+    content = f'{content[:400]}...'
     report = f"""
 **SPAM DETECTION**
 {info}

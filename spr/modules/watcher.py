@@ -35,14 +35,16 @@ async def message_watcher(_, message: Message):
         if is_chat_blacklisted(chat_id):
             await spr.leave_chat(chat_id)
 
-    if message.from_user:
-        if message.from_user.id:
-            user_id = message.from_user.id
-            if not user_exists(user_id):
-                add_user(user_id)
-            if is_user_blacklisted(user_id) and chat_id:
-                if user_id not in (await admins(chat_id)):
-                    await kick_user_notify(message)
+    if message.from_user and message.from_user.id:
+        user_id = message.from_user.id
+        if not user_exists(user_id):
+            add_user(user_id)
+        if (
+            is_user_blacklisted(user_id)
+            and chat_id
+            and user_id not in (await admins(chat_id))
+        ):
+            await kick_user_notify(message)
 
     if not chat_id or not user_id:
         return
@@ -63,12 +65,10 @@ async def message_watcher(_, message: Message):
             except Exception:
                 return
         os.remove(file)
-        if resp.ok:
-            if resp.result.is_nsfw:
-                if is_nsfw_enabled(chat_id):
-                    return await delete_nsfw_notify(
-                        message, resp.result
-                    )
+        if resp.ok and resp.result.is_nsfw and is_nsfw_enabled(chat_id):
+            return await delete_nsfw_notify(
+                message, resp.result
+            )
 
     text = message.text or message.caption
     if not text:
