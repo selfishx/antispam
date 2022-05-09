@@ -49,15 +49,15 @@ async def help_command(_, message: Message):
     kb = ikb(
         {
             "Help": "bot_commands",
-            "Owner": "https://t.me/The_Death_Soul",
+            "Owner": "https://t.me/Toxic_boy_09",
             "Add Me To Your Group": f"https://t.me/{BOT_USERNAME}?startgroup=new",
-            "Support Chat (for now)": "https://t.me/Love_Dear_Comrades",
+            "Support Chat (for now)": "https://t.me/classy_network",
         }
     )
     mention = message.from_user.mention
     await message.reply_photo(
-        "https://te.legra.ph/file/e8332f6679c9c208d02ac.jpg",
-        caption=f"Hi {mention}, I'm LDC_Antispambot,"
+        "https://te.legra.ph/file/29a0671d9381dbc6a5559.jpg",
+        caption=f"Hi {mention}, I'm Classy_Antispambot,"
         + " Choose An Option From Below.",
         reply_markup=kb,
     )
@@ -83,7 +83,7 @@ async def help_parser(name, keyboard=None):
             paginate_modules(0, HELPABLE, "help")
         )
     return (
-        f"Hello {name}, I'm LDC_Antispambot, I can protect "
+        f"Hello {name}, I'm Classy_Antispambot, I can protect "
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below.",
         keyboard,
@@ -99,7 +99,7 @@ async def help_button(client, query: CallbackQuery):
     create_match = re.match(r"help_create", query.data)
     u = query.from_user.mention
     top_text = (
-        f"Hello {u}, I'm LDC_Antispambot, I can protect "
+        f"Hello {u}, I'm Classy_Antispambot, I can protect "
         + "your group from Spam and NSFW media using "
         + "machine learning. Choose an option from below."
     )
