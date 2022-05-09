@@ -105,7 +105,7 @@ __Message has been deleted__
         {
             "Correct (0)": "upvote_spam",
             "Incorrect (0)": "downvote_spam",
-            "Chat": "https://t.me/" + (message.chat.username or "Death_Soul_fedlogs"),
+            "Chat": "https://t.me/" + (message.chat.username or "Classy_network_channel"),
         },
         2
     )
