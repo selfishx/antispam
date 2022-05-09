@@ -1,7 +1,7 @@
 {
-    "name": "LDC_Antispambot",
+    "name": "Classy_Antispambot",
     "description": "Anti Spam/NSFW Telegram Bot Written In Python With Pyrogram.",
-    "repository": "https://github.com/The-Death-Soul/SpamProtectionRobot",
+    "repository": "https://github.com/Selfishx/antispam",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
     "keywords": [
     "python3",
