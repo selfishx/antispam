@@ -1,12 +1,12 @@
-# ☠️ LDC_Antispambot ☠️
+# ☠️ Classy_Antispambot ☠️
 ### Anti Spam/NSFW Telegram Bot Written In Python With Pyrogram.
-<img src="https://te.legra.ph/file/e8332f6679c9c208d02ac.jpg"></a></p>
+<img src="https://te.legra.ph/file/29a0671d9381dbc6a5559.jpg"></a></p>
 
 [![Python](http://forthebadge.com/images/badges/made-with-python.svg)](https://python.org)&nbsp;
-[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/The-Death-Soul/)
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/selfishx/)
 
 
-<img src="https://te.legra.ph/file/e8332f6679c9c208d02ac.jpg" width="300" align="right">
+<img src="https://te.legra.ph/file/29a0671d9381dbc6a5559.jpg" width="300" align="right">
 
 
 ## Requirements
@@ -34,7 +34,7 @@ $ python3 -m spr
 
 # Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/The-Death-Soul/SpamProtectionRobot/)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/selfishx/antispam/)
 
 # Docker
 
